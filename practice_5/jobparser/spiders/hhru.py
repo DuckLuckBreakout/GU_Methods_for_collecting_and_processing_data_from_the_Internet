@@ -2,6 +2,7 @@ from jobparser.spiders.VacancySpider import VacancySpider
 
 class HhruSpider(VacancySpider):
     name = 'hhru'
+    site_name = 'hh.ru'
     allowed_domains = ['hh.ru']
     start_urls = ['https://hh.ru/search/vacancy?area=&st=searchVacancy&text=python']
     next_page_href_xpath = "//a[@class='bloko-button HH-Pager-Controls-Next HH-Pager-Control']/@href"

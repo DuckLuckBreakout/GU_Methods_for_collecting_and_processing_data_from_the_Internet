@@ -6,6 +6,7 @@ from jobparser.items import JobparserItem
 
 class VacancySpider(scrapy.Spider):
     name = ''
+    site_name = ''
     allowed_domains = ['']
     start_urls = ['']
     next_page_href_xpath = ""
@@ -27,4 +28,5 @@ class VacancySpider(scrapy.Spider):
         name = response.xpath(self.vacancy_name_xpath).extract()[0]
         salary = response.xpath(self.vacancy_salary_xpath).extract()
         href = response.url
-        yield JobparserItem(name=name, salary=salary, href=href)
+        site_name = self.site_name
+        yield JobparserItem(name=name, salary=salary, href=href, site_name=site_name)
